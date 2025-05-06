@@ -1,0 +1,13 @@
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\bin\Debug\net8.0-windows\Chronicle.Security.Menu.deps.json
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\bin\Debug\net8.0-windows\Chronicle.Security.Menu.dll
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\bin\Debug\net8.0-windows\Chronicle.Security.Menu.pdb
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\Chronicle.Security.Menu.csproj.AssemblyReference.cache
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\Chronicle.Security.Menu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\Chronicle.Security.Menu.AssemblyInfoInputs.cache
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\Chronicle.Security.Menu.AssemblyInfo.cs
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\Chronicle.Security.Menu.csproj.CoreCompileInputs.cache
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\Chronicle.Security.Menu.sourcelink.json
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\Chronicle.Security.Menu.dll
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\refint\Chronicle.Security.Menu.dll
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\Chronicle.Security.Menu.pdb
+C:\Users\adasn\source\repos\Chronicle\Chronicle.Security.Menu\obj\Debug\net8.0-windows\ref\Chronicle.Security.Menu.dll
