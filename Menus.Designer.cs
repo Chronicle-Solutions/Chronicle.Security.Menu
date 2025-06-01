@@ -33,10 +33,8 @@
             navMenu1 = new Chronicle.Controls.NavMenu();
             fileToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
-            openToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator = new ToolStripSeparator();
             saveToolStripMenuItem = new ToolStripMenuItem();
-            saveAsToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             printToolStripMenuItem = new ToolStripMenuItem();
             printPreviewToolStripMenuItem = new ToolStripMenuItem();
@@ -60,28 +58,32 @@
             searchToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator5 = new ToolStripSeparator();
             aboutToolStripMenuItem = new ToolStripMenuItem();
-            treeView1 = new TreeView();
-            splitContainer1 = new SplitContainer();
             contextMenuStrip1 = new ContextMenuStrip(components);
             createChildToolStripMenuItem = new ToolStripMenuItem();
             bindClickToolStripMenuItem = new ToolStripMenuItem();
+            toolTip1 = new ToolTip(components);
+            cbClickAction = new ComboBox();
+            statusStrip1 = new StatusStrip();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            splitContainer1 = new SplitContainer();
+            treeView1 = new TreeView();
             splitContainer2 = new SplitContainer();
             splitContainer3 = new SplitContainer();
-            checkedListBox1 = new CheckedListBox();
-            comboBox1 = new ComboBox();
+            clbObjectPerms = new CheckedListBox();
             label1 = new Label();
-            toolTip1 = new ToolTip(components);
+            cbSubmenuPop = new CheckBox();
             button1 = new Button();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            numericUpDown1 = new NumericUpDown();
             label3 = new Label();
+            nudSortOrder = new NumericUpDown();
+            label2 = new Label();
+            txtMenuText = new TextBox();
             navMenu1.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
-            contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
             splitContainer2.Panel1.SuspendLayout();
             splitContainer2.Panel2.SuspendLayout();
@@ -90,7 +92,7 @@
             splitContainer3.Panel1.SuspendLayout();
             splitContainer3.Panel2.SuspendLayout();
             splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudSortOrder).BeginInit();
             SuspendLayout();
             // 
             // navMenu1
@@ -99,17 +101,17 @@
             navMenu1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, toolsToolStripMenuItem, helpToolStripMenuItem });
             navMenu1.Location = new Point(0, 0);
             navMenu1.Name = "navMenu1";
-            navMenu1.Size = new Size(800, 28);
+            navMenu1.Padding = new Padding(5, 2, 0, 2);
+            navMenu1.Size = new Size(700, 24);
             navMenu1.TabIndex = 0;
             navMenu1.Text = "navMenu1";
             navMenu1.populate(true);
-
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, toolStripSeparator, saveToolStripMenuItem, saveAsToolStripMenuItem, toolStripSeparator1, printToolStripMenuItem, printPreviewToolStripMenuItem, toolStripSeparator2, exitToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, toolStripSeparator, saveToolStripMenuItem, toolStripSeparator1, printToolStripMenuItem, printPreviewToolStripMenuItem, toolStripSeparator2, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(46, 24);
+            fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "&File";
             // 
             // newToolStripMenuItem
@@ -118,22 +120,14 @@
             newToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             newToolStripMenuItem.Name = "newToolStripMenuItem";
             newToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.N;
-            newToolStripMenuItem.Size = new Size(181, 26);
+            newToolStripMenuItem.Size = new Size(184, 26);
             newToolStripMenuItem.Text = "&New";
-            // 
-            // openToolStripMenuItem
-            // 
-            openToolStripMenuItem.Image = (Image)resources.GetObject("openToolStripMenuItem.Image");
-            openToolStripMenuItem.ImageTransparentColor = Color.Magenta;
-            openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(181, 26);
-            openToolStripMenuItem.Text = "&Open";
+            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // toolStripSeparator
             // 
             toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(178, 6);
+            toolStripSeparator.Size = new Size(181, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -141,19 +135,14 @@
             saveToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.S;
-            saveToolStripMenuItem.Size = new Size(181, 26);
+            saveToolStripMenuItem.Size = new Size(184, 26);
             saveToolStripMenuItem.Text = "&Save";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(181, 26);
-            saveAsToolStripMenuItem.Text = "Save &As";
+            saveToolStripMenuItem.Click += button1_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(178, 6);
+            toolStripSeparator1.Size = new Size(181, 6);
             // 
             // printToolStripMenuItem
             // 
@@ -161,7 +150,7 @@
             printToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             printToolStripMenuItem.Name = "printToolStripMenuItem";
             printToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.P;
-            printToolStripMenuItem.Size = new Size(181, 26);
+            printToolStripMenuItem.Size = new Size(184, 26);
             printToolStripMenuItem.Text = "&Print";
             // 
             // printPreviewToolStripMenuItem
@@ -169,45 +158,45 @@
             printPreviewToolStripMenuItem.Image = (Image)resources.GetObject("printPreviewToolStripMenuItem.Image");
             printPreviewToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
-            printPreviewToolStripMenuItem.Size = new Size(181, 26);
+            printPreviewToolStripMenuItem.Size = new Size(184, 26);
             printPreviewToolStripMenuItem.Text = "Print Pre&view";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(178, 6);
+            toolStripSeparator2.Size = new Size(181, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(181, 26);
+            exitToolStripMenuItem.Size = new Size(184, 26);
             exitToolStripMenuItem.Text = "E&xit";
             // 
             // editToolStripMenuItem
             // 
             editToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { undoToolStripMenuItem, redoToolStripMenuItem, toolStripSeparator3, cutToolStripMenuItem, copyToolStripMenuItem, pasteToolStripMenuItem, toolStripSeparator4, selectAllToolStripMenuItem });
             editToolStripMenuItem.Name = "editToolStripMenuItem";
-            editToolStripMenuItem.Size = new Size(49, 24);
+            editToolStripMenuItem.Size = new Size(39, 20);
             editToolStripMenuItem.Text = "&Edit";
             // 
             // undoToolStripMenuItem
             // 
             undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             undoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Z;
-            undoToolStripMenuItem.Size = new Size(179, 26);
+            undoToolStripMenuItem.Size = new Size(144, 22);
             undoToolStripMenuItem.Text = "&Undo";
             // 
             // redoToolStripMenuItem
             // 
             redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             redoToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.Y;
-            redoToolStripMenuItem.Size = new Size(179, 26);
+            redoToolStripMenuItem.Size = new Size(144, 22);
             redoToolStripMenuItem.Text = "&Redo";
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(176, 6);
+            toolStripSeparator3.Size = new Size(141, 6);
             // 
             // cutToolStripMenuItem
             // 
@@ -215,7 +204,7 @@
             cutToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             cutToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.X;
-            cutToolStripMenuItem.Size = new Size(179, 26);
+            cutToolStripMenuItem.Size = new Size(144, 22);
             cutToolStripMenuItem.Text = "Cu&t";
             // 
             // copyToolStripMenuItem
@@ -224,7 +213,7 @@
             copyToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.C;
-            copyToolStripMenuItem.Size = new Size(179, 26);
+            copyToolStripMenuItem.Size = new Size(144, 22);
             copyToolStripMenuItem.Text = "&Copy";
             // 
             // pasteToolStripMenuItem
@@ -233,87 +222,125 @@
             pasteToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             pasteToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.V;
-            pasteToolStripMenuItem.Size = new Size(179, 26);
+            pasteToolStripMenuItem.Size = new Size(144, 22);
             pasteToolStripMenuItem.Text = "&Paste";
             // 
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(176, 6);
+            toolStripSeparator4.Size = new Size(141, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            selectAllToolStripMenuItem.Size = new Size(179, 26);
+            selectAllToolStripMenuItem.Size = new Size(144, 22);
             selectAllToolStripMenuItem.Text = "Select &All";
             // 
             // toolsToolStripMenuItem
             // 
             toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { customizeToolStripMenuItem, optionsToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            toolsToolStripMenuItem.Size = new Size(58, 24);
+            toolsToolStripMenuItem.Size = new Size(47, 20);
             toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
             // 
             customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            customizeToolStripMenuItem.Size = new Size(161, 26);
+            customizeToolStripMenuItem.Size = new Size(130, 22);
             customizeToolStripMenuItem.Text = "&Customize";
             // 
             // optionsToolStripMenuItem
             // 
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            optionsToolStripMenuItem.Size = new Size(161, 26);
+            optionsToolStripMenuItem.Size = new Size(130, 22);
             optionsToolStripMenuItem.Text = "&Options";
             // 
             // helpToolStripMenuItem
             // 
             helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contentsToolStripMenuItem, indexToolStripMenuItem, searchToolStripMenuItem, toolStripSeparator5, aboutToolStripMenuItem });
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(55, 24);
+            helpToolStripMenuItem.Size = new Size(44, 20);
             helpToolStripMenuItem.Text = "&Help";
             // 
             // contentsToolStripMenuItem
             // 
             contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            contentsToolStripMenuItem.Size = new Size(150, 26);
+            contentsToolStripMenuItem.Size = new Size(122, 22);
             contentsToolStripMenuItem.Text = "&Contents";
             // 
             // indexToolStripMenuItem
             // 
             indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            indexToolStripMenuItem.Size = new Size(150, 26);
+            indexToolStripMenuItem.Size = new Size(122, 22);
             indexToolStripMenuItem.Text = "&Index";
             // 
             // searchToolStripMenuItem
             // 
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            searchToolStripMenuItem.Size = new Size(150, 26);
+            searchToolStripMenuItem.Size = new Size(122, 22);
             searchToolStripMenuItem.Text = "&Search";
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(147, 6);
+            toolStripSeparator5.Size = new Size(119, 6);
             // 
             // aboutToolStripMenuItem
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new Size(150, 26);
+            aboutToolStripMenuItem.Size = new Size(122, 22);
             aboutToolStripMenuItem.Text = "&About...";
             // 
-            // treeView1
+            // contextMenuStrip1
             // 
-            treeView1.Dock = DockStyle.Fill;
-            treeView1.Location = new Point(0, 0);
-            treeView1.Name = "treeView1";
-            treeView1.Size = new Size(266, 422);
-            treeView1.TabIndex = 1;
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { createChildToolStripMenuItem, bindClickToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(140, 48);
+            // 
+            // createChildToolStripMenuItem
+            // 
+            createChildToolStripMenuItem.Name = "createChildToolStripMenuItem";
+            createChildToolStripMenuItem.Size = new Size(139, 22);
+            createChildToolStripMenuItem.Text = "Create Child";
+            // 
+            // bindClickToolStripMenuItem
+            // 
+            bindClickToolStripMenuItem.Name = "bindClickToolStripMenuItem";
+            bindClickToolStripMenuItem.Size = new Size(139, 22);
+            bindClickToolStripMenuItem.Text = "Bind Click";
+            // 
+            // cbClickAction
+            // 
+            cbClickAction.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbClickAction.FormattingEnabled = true;
+            cbClickAction.Location = new Point(84, 40);
+            cbClickAction.Margin = new Padding(3, 2, 3, 2);
+            cbClickAction.Name = "cbClickAction";
+            cbClickAction.Size = new Size(136, 23);
+            cbClickAction.TabIndex = 0;
+            toolTip1.SetToolTip(cbClickAction, "Plugin to Execute when button is clicked.");
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new Point(0, 316);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(700, 22);
+            statusStrip1.TabIndex = 4;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(118, 17);
+            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(0, 28);
+            splitContainer1.Location = new Point(0, 24);
+            splitContainer1.Margin = new Padding(3, 2, 3, 2);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -323,33 +350,29 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer2);
-            splitContainer1.Size = new Size(800, 422);
-            splitContainer1.SplitterDistance = 266;
-            splitContainer1.TabIndex = 1;
+            splitContainer1.Size = new Size(700, 292);
+            splitContainer1.SplitterDistance = 293;
+            splitContainer1.TabIndex = 5;
             // 
-            // contextMenuStrip1
+            // treeView1
             // 
-            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { createChildToolStripMenuItem, bindClickToolStripMenuItem });
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(160, 52);
-            // 
-            // createChildToolStripMenuItem
-            // 
-            createChildToolStripMenuItem.Name = "createChildToolStripMenuItem";
-            createChildToolStripMenuItem.Size = new Size(159, 24);
-            createChildToolStripMenuItem.Text = "Create Child";
-            // 
-            // bindClickToolStripMenuItem
-            // 
-            bindClickToolStripMenuItem.Name = "bindClickToolStripMenuItem";
-            bindClickToolStripMenuItem.Size = new Size(159, 24);
-            bindClickToolStripMenuItem.Text = "Bind Click";
+            treeView1.AllowDrop = true;
+            treeView1.Dock = DockStyle.Fill;
+            treeView1.Location = new Point(0, 0);
+            treeView1.Margin = new Padding(3, 2, 3, 2);
+            treeView1.Name = "treeView1";
+            treeView1.Size = new Size(293, 292);
+            treeView1.TabIndex = 1;
+            treeView1.ItemDrag += treeView1_ItemDrag;
+            treeView1.AfterSelect += treeView1_AfterSelect;
+            treeView1.DragDrop += treeView1_DragDrop;
+            treeView1.DragEnter += treeView1_DragEnter;
             // 
             // splitContainer2
             // 
             splitContainer2.Dock = DockStyle.Fill;
             splitContainer2.Location = new Point(0, 0);
+            splitContainer2.Margin = new Padding(3, 2, 3, 2);
             splitContainer2.Name = "splitContainer2";
             splitContainer2.Orientation = Orientation.Horizontal;
             // 
@@ -359,119 +382,136 @@
             // 
             // splitContainer2.Panel2
             // 
+            splitContainer2.Panel2.Controls.Add(cbSubmenuPop);
+            splitContainer2.Panel2.Controls.Add(button1);
             splitContainer2.Panel2.Controls.Add(label3);
-            splitContainer2.Panel2.Controls.Add(numericUpDown1);
+            splitContainer2.Panel2.Controls.Add(nudSortOrder);
             splitContainer2.Panel2.Controls.Add(label2);
-            splitContainer2.Panel2.Controls.Add(textBox1);
-            splitContainer2.Size = new Size(530, 422);
-            splitContainer2.SplitterDistance = 204;
+            splitContainer2.Panel2.Controls.Add(txtMenuText);
+            splitContainer2.Size = new Size(403, 292);
+            splitContainer2.SplitterDistance = 147;
+            splitContainer2.SplitterWidth = 3;
             splitContainer2.TabIndex = 0;
             // 
             // splitContainer3
             // 
             splitContainer3.Dock = DockStyle.Fill;
             splitContainer3.Location = new Point(0, 0);
+            splitContainer3.Margin = new Padding(3, 2, 3, 2);
             splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
             // 
-            splitContainer3.Panel1.Controls.Add(checkedListBox1);
+            splitContainer3.Panel1.Controls.Add(clbObjectPerms);
             // 
             // splitContainer3.Panel2
             // 
-            splitContainer3.Panel2.Controls.Add(button1);
             splitContainer3.Panel2.Controls.Add(label1);
-            splitContainer3.Panel2.Controls.Add(comboBox1);
-            splitContainer3.Size = new Size(530, 204);
-            splitContainer3.SplitterDistance = 176;
+            splitContainer3.Panel2.Controls.Add(cbClickAction);
+            splitContainer3.Size = new Size(403, 147);
+            splitContainer3.SplitterDistance = 167;
             splitContainer3.TabIndex = 0;
             // 
-            // checkedListBox1
+            // clbObjectPerms
             // 
-            checkedListBox1.Dock = DockStyle.Fill;
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(0, 0);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(176, 204);
-            checkedListBox1.TabIndex = 0;
-            checkedListBox1.ItemCheck += checkedListBox1_ItemCheck;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(96, 54);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(202, 28);
-            comboBox1.TabIndex = 0;
-            toolTip1.SetToolTip(comboBox1, "Plugin to Execute when button is clicked.");
+            clbObjectPerms.Dock = DockStyle.Fill;
+            clbObjectPerms.FormattingEnabled = true;
+            clbObjectPerms.Location = new Point(0, 0);
+            clbObjectPerms.Margin = new Padding(3, 2, 3, 2);
+            clbObjectPerms.Name = "clbObjectPerms";
+            clbObjectPerms.Size = new Size(167, 147);
+            clbObjectPerms.TabIndex = 0;
+            clbObjectPerms.ItemCheck += checkedListBox1_ItemCheck;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 57);
+            label1.Location = new Point(24, 43);
             label1.Name = "label1";
-            label1.Size = new Size(63, 20);
+            label1.Size = new Size(52, 15);
             label1.TabIndex = 1;
             label1.Text = "On Click";
             // 
+            // cbSubmenuPop
+            // 
+            cbSubmenuPop.AutoSize = true;
+            cbSubmenuPop.Location = new Point(84, 64);
+            cbSubmenuPop.Margin = new Padding(3, 2, 3, 2);
+            cbSubmenuPop.Name = "cbSubmenuPop";
+            cbSubmenuPop.Size = new Size(145, 19);
+            cbSubmenuPop.TabIndex = 4;
+            cbSubmenuPop.Text = "Populate in Submenus";
+            cbSubmenuPop.UseVisualStyleBackColor = true;
+            cbSubmenuPop.CheckedChanged += cbSubmenuPop_CheckedChanged;
+            // 
             // button1
             // 
-            button1.Location = new Point(244, 163);
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Location = new Point(318, 121);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(82, 22);
             button1.TabIndex = 2;
             button1.Text = "Update";
             button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(96, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(159, 27);
-            textBox1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(54, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(36, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Text";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(96, 53);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(159, 27);
-            numericUpDown1.TabIndex = 2;
+            button1.Click += button1_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 55);
+            label3.Location = new Point(10, 41);
             label3.Name = "label3";
-            label3.Size = new Size(78, 20);
+            label3.Size = new Size(61, 15);
             label3.TabIndex = 3;
             label3.Text = "Sort Order";
             // 
+            // nudSortOrder
+            // 
+            nudSortOrder.Location = new Point(84, 40);
+            nudSortOrder.Margin = new Padding(3, 2, 3, 2);
+            nudSortOrder.Name = "nudSortOrder";
+            nudSortOrder.Size = new Size(139, 23);
+            nudSortOrder.TabIndex = 2;
+            nudSortOrder.Leave += nudSortOrder_Leave;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(47, 19);
+            label2.Name = "label2";
+            label2.Size = new Size(28, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Text";
+            // 
+            // txtMenuText
+            // 
+            txtMenuText.Location = new Point(84, 16);
+            txtMenuText.Margin = new Padding(3, 2, 3, 2);
+            txtMenuText.Name = "txtMenuText";
+            txtMenuText.Size = new Size(140, 23);
+            txtMenuText.TabIndex = 0;
+            // 
             // Menus
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(splitContainer1);
+            Controls.Add(statusStrip1);
             Controls.Add(navMenu1);
             MainMenuStrip = navMenu1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Menus";
             Text = "Menus";
             navMenu1.ResumeLayout(false);
             navMenu1.PerformLayout();
+            contextMenuStrip1.ResumeLayout(false);
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
-            contextMenuStrip1.ResumeLayout(false);
             splitContainer2.Panel1.ResumeLayout(false);
             splitContainer2.Panel2.ResumeLayout(false);
             splitContainer2.Panel2.PerformLayout();
@@ -482,7 +522,7 @@
             splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer3).EndInit();
             splitContainer3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudSortOrder).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -490,15 +530,10 @@
         #endregion
 
         private Controls.NavMenu navMenu1;
-        private TreeView treeView1;
-        private SplitContainer splitContainer1;
-        private Label label1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem newToolStripMenuItem;
-        private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator;
         private ToolStripMenuItem saveToolStripMenuItem;
-        private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripMenuItem printToolStripMenuItem;
         private ToolStripMenuItem printPreviewToolStripMenuItem;
@@ -525,15 +560,21 @@
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem createChildToolStripMenuItem;
         private ToolStripMenuItem bindClickToolStripMenuItem;
+        private ToolTip toolTip1;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private SplitContainer splitContainer1;
+        private TreeView treeView1;
         private SplitContainer splitContainer2;
         private SplitContainer splitContainer3;
-        private CheckedListBox checkedListBox1;
-        private ComboBox comboBox1;
-        private ToolTip toolTip1;
+        private CheckedListBox clbObjectPerms;
+        private Label label1;
+        private ComboBox cbClickAction;
+        private CheckBox cbSubmenuPop;
         private Button button1;
         private Label label3;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown nudSortOrder;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtMenuText;
     }
 }

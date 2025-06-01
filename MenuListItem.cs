@@ -10,6 +10,8 @@ namespace Chronicle.Security.Menu
     public class MenuTreeItem : TreeNode
     {
         public int itemID;
+        public int? parentID;
+        
 
         public MenuTreeItem(int itemID)
         {
